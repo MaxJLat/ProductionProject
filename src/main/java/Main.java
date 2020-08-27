@@ -23,6 +23,9 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
 
+        // Code to add the style sheet to the FXML files
+        scene.getStylesheets().add(Main.class.getResource("ProductionStyleSheet.css").toExternalForm());
+
         primaryStage.show();
 
     }
