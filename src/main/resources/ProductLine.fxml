@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tab1Controller">
    <children>
       <GridPane layoutX="14.0" layoutY="60.0" prefHeight="95.0" prefWidth="430.0">
@@ -33,7 +32,7 @@
             <Label text="Label" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button id="AddProduct" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" text="Add Product" />
+      <Button id="AddProduct" fx:id="addProductButton" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
       <TableView layoutX="28.0" layoutY="235.0" prefHeight="150.0" prefWidth="516.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
