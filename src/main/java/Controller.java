@@ -2,21 +2,22 @@ import javafx.fxml.FXML;
 
 import javafx.scene.control.Label;
 
+import java.sql.*;
+
 
 public class Controller {
 
+  @FXML
 
-    @FXML
-
-    private Label lblOutput;
-
-
-    public void sayHello() {
-
-        lblOutput.setText("Hello FXML!");
+  private Label lblOutput;
 
 
-    }
+  public void sayHello() {
+
+    lblOutput.setText("Hello FXML!");
+
+
+  }
 
 
 }
