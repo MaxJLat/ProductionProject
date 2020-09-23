@@ -14,8 +14,6 @@ public class Main extends Application {
 
   public void start(Stage primaryStage) throws Exception {
 
-    DatabaseController.connectToDB();
-
     Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
     Scene scene = new Scene(root, 300, 275);

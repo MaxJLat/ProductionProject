@@ -7,6 +7,13 @@ import java.sql.*;
 
 public class Controller {
 
+  public void initialize(){
+
+    DatabaseController.connectToDB();
+    DatabaseController.closeDB();
+  }
+
+
   @FXML
 
   private Label lblOutput;

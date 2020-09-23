@@ -18,7 +18,7 @@
                 <fx:include source="ProductLine.fxml"></fx:include>
             </Tab>
 
-            <Tab fx:id="Produce" text="ProduceController">
+            <Tab fx:id="Produce" text="Produce">
                 <fx:include source="Produce.fxml"></fx:include>
             </Tab>
             <Tab fx:id="ProductionLog" text="Production Log">
