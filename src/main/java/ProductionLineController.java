@@ -14,6 +14,16 @@ public class ProductionLineController {
   public TextField manufactorTF;
   public ChoiceBox labelChoiceBox;
 
+  //initialize runs on startup
+  public void initialize() {
+
+    //For looping through enum values and populating the labelChoiceBox with them.
+    for (ItemType item : ItemType.values()) {
+      labelChoiceBox.getItems().add(item);
+    }
+
+  }
+
   /*
    addProduct eventhandler for pressing the button.
    takes input from the user in the textfields productNameTF, manufactorTF,
@@ -30,9 +40,17 @@ public class ProductionLineController {
 
     //Prepared statement using 2 parameters
     PreparedStatement pstmt = DatabaseController.conn.prepareStatement(
-        "INSERT INTO Product(type, manufacturer, name) VALUES ( 'AUDIO', ?, ? );");
-    pstmt.setString(1, manufactorTF.getText());
-    pstmt.setString(2, productNameTF.getText());
+        "INSERT INTO Product(type, manufacturer, name) VALUES ( ?, ?, ? );");
+    //Get labelChoiceBox selection, the method returns an object
+    //ItemType is an object by inheritance
+    // but explicitly cast to ItemType to make easier to read
+    ItemType temp = (ItemType) labelChoiceBox.getValue();
+    //then use the temp variable to hold this ItemType
+    //Use .toString to retrieve the TYPE as a String.
+    pstmt.setString(1, temp.toString());
+    pstmt.setString(2, manufactorTF.getText());
+    pstmt.setString(3, productNameTF.getText());
+
     //executeUpdate() since i don't need anything back.
     pstmt.executeUpdate();
     // close the prepared statement
