@@ -14,6 +14,12 @@ public class ProductionLineController {
   public TextField manufactorTF;
   public ChoiceBox labelChoiceBox;
 
+  /*
+   addProduct eventhandler for pressing the button.
+   takes input from the user in the textfields productNameTF, manufactorTF,
+   and eventually the labelChoiceBox. it puts the inputs into the product table
+   in the database. Afterwards it returns the entire product table name, type, and manufactorer.
+   */
   public void addProduct(ActionEvent actionEvent) throws SQLException {
 
     //connect to database, initializes a connection object inside the controller.

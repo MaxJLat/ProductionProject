@@ -1,9 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class DatabaseController {
 
@@ -26,7 +24,7 @@ public class DatabaseController {
       //conn = DriverManager.getConnection(DB_URL, USER, PASS);
       conn = DriverManager.getConnection(DB_URL);
 
-      //STEP 3: Execute a query
+
 
     } catch (SQLException | ClassNotFoundException e) {
       e.printStackTrace();
@@ -34,11 +32,12 @@ public class DatabaseController {
     }
 
   }
-
+  //method to fetch the connection outside of DatabaseController so that the Controllers
+  //can use it to create statements.
   public static Connection getConnection() {
     return conn;
   }
-
+  //Closes the connection.
   public static void closeDB() {
     try {
       conn.close();

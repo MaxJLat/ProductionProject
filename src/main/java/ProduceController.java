@@ -7,6 +7,7 @@ public class ProduceController {
 
   public void initialize() {
 
+    //Populate quantityComboBox with choices 1-10 upon initialization.
     for (int i = 1; i < 11; i++) {
       quantityComboBox.getItems().add(i);
     }
@@ -15,6 +16,7 @@ public class ProduceController {
 
   }
 
+  //Event handler for pressing the record production button.
   public void recordProduction(ActionEvent actionEvent) {
     System.out.println("Record production button was pressed.");
   }
