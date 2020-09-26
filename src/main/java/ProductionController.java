@@ -1,9 +1,9 @@
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 
-public class ProduceController {
+public class ProductionController {
 
-  public ComboBox quantityComboBox;
+  public ComboBox<Integer> quantityComboBox;
 
   public void initialize() {
 

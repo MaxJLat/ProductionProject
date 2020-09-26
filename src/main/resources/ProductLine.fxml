@@ -33,10 +33,11 @@
          </children>
       </GridPane>
       <Button id="AddProduct" fx:id="addProductButton" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
-      <TableView layoutX="28.0" layoutY="235.0" prefHeight="150.0" prefWidth="516.0">
+      <TableView fx:id="productLineTable" layoutX="28.0" layoutY="235.0" prefHeight="150.0" prefWidth="516.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="nameColumn" prefWidth="182.4000244140625" text="C1" />
+          <TableColumn fx:id="typeColumn" minWidth="0.0" prefWidth="168.0" text="C2" />
+            <TableColumn fx:id="manuColumn" prefWidth="167.20001220703125" text="Column X" />
         </columns>
       </TableView>
       <Label layoutX="251.0" layoutY="191.0" text="Existing Products" />

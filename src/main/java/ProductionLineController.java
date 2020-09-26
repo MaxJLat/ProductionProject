@@ -12,10 +12,12 @@ public class ProductionLineController {
 
   public TextField productNameTF;
   public TextField manufactorTF;
-  public ChoiceBox labelChoiceBox;
+  public ChoiceBox<ItemType> labelChoiceBox;
 
   //initialize runs on startup
   public void initialize() {
+
+
 
     //For looping through enum values and populating the labelChoiceBox with them.
     for (ItemType item : ItemType.values()) {
