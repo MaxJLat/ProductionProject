@@ -42,6 +42,10 @@ abstract class Product implements Item {
   public String getManufacturer() {
     return manufacturer;
   }
+
+  public ItemType getType() {
+    return type;
+  }
 }
 
 class Widget extends Product {

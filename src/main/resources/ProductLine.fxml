@@ -24,9 +24,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="productNameTF" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+            <TextField fx:id="productNameTF" GridPane.columnIndex="1" GridPane.valignment="CENTER"  />
             <TextField fx:id="manufactorTF" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <ChoiceBox fx:id="labelChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="labelChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
             <Label text="Product Name" />
             <Label text="Manufactorer" GridPane.rowIndex="1" />
             <Label text="Label" GridPane.rowIndex="2" />
@@ -35,9 +35,9 @@
       <Button id="AddProduct" fx:id="addProductButton" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
       <TableView fx:id="productLineTable" layoutX="28.0" layoutY="235.0" prefHeight="150.0" prefWidth="516.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="182.4000244140625" text="C1" />
-          <TableColumn fx:id="typeColumn" minWidth="0.0" prefWidth="168.0" text="C2" />
-            <TableColumn fx:id="manuColumn" prefWidth="167.20001220703125" text="Column X" />
+          <TableColumn fx:id="nameColumn" prefWidth="182.4000244140625" text="Product" />
+          <TableColumn fx:id="typeColumn" minWidth="0.0" prefWidth="168.0" text="Type" />
+            <TableColumn fx:id="manuColumn" prefWidth="167.20001220703125" text="Manufacturer" />
         </columns>
       </TableView>
       <Label layoutX="251.0" layoutY="191.0" text="Existing Products" />
