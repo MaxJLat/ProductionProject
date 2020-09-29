@@ -25,6 +25,14 @@ public class ProductionRecord {
     this.dateProduced = dateProduced;
   }
 
+  public ProductionRecord(Product product, int itemCount){
+    serialNumber = product.manufacturer.substring(0,3) + product.type.code
+        +String.format("%05d", itemCount++);
+    productID = product.getId();
+    dateProduced = new Date();
+    productionNumber = 0;
+  }
+
   //toString() override which prints all the fields in ProductionRecord.
   public String toString() {
     return "Prod. Num: " + productionNumber + " Product ID: " + productID

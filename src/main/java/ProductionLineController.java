@@ -29,6 +29,9 @@ public class ProductionLineController {
   @FXML
   private TableColumn<?, ?> manuColumn;
 
+  //prototype screen object to use for now.
+  Screen testScreen = new Screen();
+
 //Observable List is created in Controller as public static, accessible by all Controllers for now.
 
 
@@ -45,8 +48,6 @@ public class ProductionLineController {
     nameColumn.setCellValueFactory(new PropertyValueFactory("name"));
     typeColumn.setCellValueFactory(new PropertyValueFactory("type"));
     manuColumn.setCellValueFactory(new PropertyValueFactory("manufacturer"));
-
-
 
     //Connect to database and select NAME, TYPE, and MANUFACTURER from PRODUCT table in DB.
     DatabaseController.connectToDB();
@@ -69,7 +70,7 @@ public class ProductionLineController {
         case VISUAL:
           Controller.products.add(new MoviePlayer(rset.getString("NAME"),
               rset.getString("MANUFACTURER"),
-              null, null));
+              testScreen, MonitorType.LCD));
           break;
         default:
           System.out.println("incompatible.");

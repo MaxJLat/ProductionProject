@@ -10,6 +10,12 @@ public class Screen implements ScreenSpec {
     this.responseTime = responseTime;
   }
 
+  public Screen(){
+    this.resolution = null;
+    this.refreshRate = 0;
+    this.responseTime = 0;
+  }
+
   //Returns string with all fields, empty space for Screen type when implemented.
   public String toString(){
     return "Screen: \nResolution: " + resolution + "\nRefresh rate: "

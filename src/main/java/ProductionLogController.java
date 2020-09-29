@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 
 public class ProductionLogController {
 
-  public TextArea proRecordTA;
+  public TextArea productionRecordTA;
 
   public void initialize() throws SQLException {
     //Make connection object inside DatabaseController.
@@ -27,7 +27,7 @@ public class ProductionLogController {
           rset.getDate("DATE_PRODUCED")
       );
 
-      proRecordTA.setText(proRecordTA.getText() + "\n" + tempProRec.toString());
+      productionRecordTA.setText(productionRecordTA.getText() + "\n" + tempProRec.toString());
     }
     rset.close();
     conn.close();

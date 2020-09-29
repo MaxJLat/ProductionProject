@@ -17,7 +17,7 @@ public class MoviePlayer extends Product implements MultimediaControl {
   //Overriding toString() method that includes Product.toString(), Screen.toString(),
   //and adds MonitorType.
   public String toString() {
-    return super.toString() + screen.toString() + "Monitor Type: " + monitorType;
+    return super.toString() + screen.toString() + "\nMonitor Type: " + monitorType;
   }
 
 
