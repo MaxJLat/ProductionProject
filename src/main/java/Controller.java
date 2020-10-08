@@ -18,6 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.StringConverter;
 
 public class Controller {
 
@@ -38,10 +39,10 @@ public class Controller {
   public Button recordProductionBttn;
   public TextArea productionRecordTA;
 
-//Test screen for use to populate products
+  //Test screen for use to populate products
   Screen testScreen = new Screen();
 
-//initialize method that calls the separate initialize methods for each tab.
+  //initialize method that calls the separate initialize methods for each tab.
   public void initialize() throws SQLException {
 
     productionTabInitialize();
@@ -54,8 +55,8 @@ public class Controller {
   }
 
   /*Add product method, activates when pressing the add product button.
-  * It takes the values in the labelChoiceBox, productNameTF, manufactorTF and creates products
-  * from them. */
+   * It takes the values in the labelChoiceBox, productNameTF, manufactorTF and creates products
+   * from them. */
   public void addProduct(ActionEvent actionEvent) throws SQLException {
 
     //First add to Products observable list.
@@ -69,9 +70,10 @@ public class Controller {
             null, null));
 
         break;
+      //hard coded screen and monitor type for now until more user input is able to be used.
       case VISUAL:
         Controller.products.add(new MoviePlayer(productNameTF.getText(), manufactorTF.getText(),
-            null, null));
+            testScreen, MonitorType.LCD));
         break;
       default:
         System.out.println("incompatible.");
@@ -120,9 +122,9 @@ public class Controller {
   }
 
   /*recordProduction method is an eventhandler that activates when the recordProduction is pressed.
-  * It takes the selection from the productListFXML and creates a productionRecord, then it
-  * uploads the productionRecord to the database.*/
-  public void recordProduction(ActionEvent actionEvent) throws SQLException, IOException {
+   * It takes the selection from the productListFXML and creates a productionRecord, then it
+   * uploads the productionRecord to the database.*/
+  public void recordProduction(ActionEvent actionEvent) throws SQLException {
 
     //Gets the selected product from the productListFXML.
     Product selectedProduct =
@@ -133,7 +135,9 @@ public class Controller {
     Connection conn = DatabaseController.getConnection();
     PreparedStatement pstmt;
 
-    int itemCount = (int) quantityComboBox.getValue();
+    //quantityComboBox returns a string because the combobox is editable.
+    //String.valueOf() is unnecessary but makes it more explicit a String is being passed here.
+    int itemCount = Integer.parseInt(String.valueOf(quantityComboBox.getValue()));
 
     //create a ProductionRecord from product and itemCount.
     ProductionRecord productRecord = new ProductionRecord(selectedProduct, itemCount);
@@ -247,6 +251,7 @@ public class Controller {
     DatabaseController.closeDB();
 
   }
+
   //updates the production log, called when addProductionRecord button is pressed.
   private void updateProductionLog() throws SQLException {
 
@@ -255,8 +260,6 @@ public class Controller {
 
     //Make connection object inside DatabaseController.
     DatabaseController.connectToDB();
-
-
 
     //Create a copy of the connection inside ProductionLogController.
     Connection conn = DatabaseController.getConnection();
