@@ -1,3 +1,4 @@
+/*abstract class to be implemented by specific products as a template.*/
 abstract class Product implements Item {
 
   //Fields for the methods.
@@ -11,13 +12,14 @@ abstract class Product implements Item {
     this.name = name;
     this.manufacturer = manufacturer;
   }
-
+/*toString override method to return in a specific readable fashion that's easy to print
+* @return a formatted string of name, manufacturer, and type*/
   public String toString() {
     return "Name: " + name + "\nManufacturer: " + manufacturer + "\nType: " + type;
   }
 
 
-  //Implemented from Item interface.
+
   @Override
   public int getId() {
     return id;

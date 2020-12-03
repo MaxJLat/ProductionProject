@@ -14,6 +14,7 @@ public class DatabaseController {
   final String PASS = "";
   public static Connection conn = null;
 
+  /*Opens a connection object to the database*/
   public static void connectToDB() throws IOException {
     Properties prop = new Properties();
     prop.load(new FileInputStream("C:\\Users\\Maximilien Latura\\IdeaProjects\\ProductionProject\\src\\main\\java\\password.properties"));
@@ -39,13 +40,14 @@ public class DatabaseController {
 
   }
 
-  //method to fetch the connection outside of DatabaseController so that the Controllers
-  //can use it to create statements.
+  /*method to fetch the connection outside of DatabaseController so that the Controllers
+  can use it to create statements.
+  @return the connection object.*/
   public static Connection getConnection() {
     return conn;
   }
 
-  //Closes the connection.
+  /*Closes the connection made by connectToDB().*/
   public static void closeDB() {
     try {
       conn.close();

@@ -6,6 +6,7 @@ public class Employee {
 
 
 
+  /*Constructor for the employee Class.*/
   public Employee(String stringName, String password){
     this.name = new StringBuilder().append(stringName);
     if(checkName(this.name)){

@@ -1,5 +1,6 @@
 import javax.management.monitor.Monitor;
-
+/*MoviePlayer class is designed to repersent movie players.
+* It implements Multimedia control and extends Product.*/
 public class MoviePlayer extends Product implements MultimediaControl {
 
   //additional fields
@@ -14,14 +15,15 @@ public class MoviePlayer extends Product implements MultimediaControl {
     this.monitorType = monitorType;
   }
 
-  //Overriding toString() method that includes Product.toString(), Screen.toString(),
-  //and adds MonitorType.
+  /*Overriding toString() method that includes Product.toString(), Screen.toString(),
+  and adds MonitorType.*/
   public String toString() {
     return super.toString() + screen.toString() + "\nMonitor Type: " + monitorType;
   }
 
 
-  //Implemented from MultimediaControl.
+  /*Implemented from MultimediaControl.
+  * Test methods to be used in the future.*/
   @Override
   public void play() {
     System.out.println("Playing movie");

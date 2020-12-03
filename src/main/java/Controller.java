@@ -46,7 +46,7 @@ public class Controller {
   //Test screen for use to populate products
   Screen testScreen = new Screen();
 
-  //initialize method that calls the separate initialize methods for each tab.
+  /*initialize method runs on program startup.*/
   public void initialize() throws SQLException, IOException {
 
     productionTabInitialize();
