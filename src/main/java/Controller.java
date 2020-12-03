@@ -1,3 +1,5 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
@@ -5,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,12 +41,13 @@ public class Controller {
   public ComboBox<Integer> quantityComboBox;
   public Button recordProductionBttn;
   public TextArea productionRecordTA;
+  private Properties prop;
 
   //Test screen for use to populate products
   Screen testScreen = new Screen();
 
   //initialize method that calls the separate initialize methods for each tab.
-  public void initialize() throws SQLException {
+  public void initialize() throws SQLException, IOException {
 
     productionTabInitialize();
 
@@ -57,7 +61,7 @@ public class Controller {
   /*Add product method, activates when pressing the add product button.
    * It takes the values in the labelChoiceBox, productNameTF, manufactorTF and creates products
    * from them. */
-  public void addProduct(ActionEvent actionEvent) throws SQLException {
+  public void addProduct(ActionEvent actionEvent) throws SQLException, IOException {
 
     //First add to Products observable list.
     //assign the ItemType to a tempItem variable for readability and to send through switch
@@ -124,7 +128,7 @@ public class Controller {
   /*recordProduction method is an eventhandler that activates when the recordProduction is pressed.
    * It takes the selection from the productListFXML and creates a productionRecord, then it
    * uploads the productionRecord to the database.*/
-  public void recordProduction(ActionEvent actionEvent) throws SQLException {
+  public void addProductionRecord(ActionEvent actionEvent) throws SQLException, IOException {
 
     //Gets the selected product from the productListFXML.
     Product selectedProduct =
@@ -140,19 +144,20 @@ public class Controller {
     int itemCount = Integer.parseInt(String.valueOf(quantityComboBox.getValue()));
 
     //create a ProductionRecord from product and itemCount.
-    ProductionRecord productRecord = new ProductionRecord(selectedProduct, itemCount);
-
-    Date sqlDate = new Date(productRecord.getProdDate().getTime());
-
-    // Prepared Statement to insert into database.
-    pstmt = conn.prepareStatement("INSERT INTO PRODUCTIONRECORD VALUES(?,?,?,?)");
-    //Filling the prepared statement.
-    pstmt.setInt(1, productRecord.getProductionNum());
-    pstmt.setInt(2, productRecord.getProductID());
-    pstmt.setString(3, productRecord.getSerialNum());
-    pstmt.setDate(4, sqlDate);
-    //execute prepared statement.
-    pstmt.executeUpdate();
+    for (int i = itemCount; i > 0; i--) {
+      ProductionRecord productRecord = new ProductionRecord(selectedProduct, itemCount);
+      //get the date in sql format.
+      Date sqlDate = new Date(productRecord.getProdDate().getTime());
+      // Prepared Statement to insert into database.
+      pstmt = conn.prepareStatement("INSERT INTO PRODUCTIONRECORD VALUES(?,?,?,?)");
+      //Filling the prepared statement.
+      pstmt.setInt(1, productRecord.getProductionNum());
+      pstmt.setInt(2, productRecord.getProductID());
+      pstmt.setString(3, productRecord.getSerialNum());
+      pstmt.setDate(4, sqlDate);
+      //execute prepared statement.
+      pstmt.executeUpdate();
+    }
 
     System.out.println("Record production button was pressed.");
 
@@ -178,9 +183,9 @@ public class Controller {
 
 
   /*productionLineTab initialize method*/
-  private void productionLineTabInitialize() throws SQLException {
+  private void productionLineTabInitialize() throws SQLException, IOException {
     //assigns ObservableList products to the table.
-    productLineTable.setItems(Controller.products);
+    productLineTable.setItems(products);
 
     //Make sure to put inside a method
 
@@ -225,7 +230,7 @@ public class Controller {
   }
 
   /*productionLog initialize method*/
-  private void productionLogInitialize() throws SQLException {
+  private void productionLogInitialize() throws SQLException, IOException {
     //Make connection object inside DatabaseController.
     DatabaseController.connectToDB();
 
@@ -252,8 +257,10 @@ public class Controller {
 
   }
 
-  //updates the production log, called when addProductionRecord button is pressed.
-  private void updateProductionLog() throws SQLException {
+  /*
+  Updates the production log table when called, by pulling from the Database.
+   */
+  private void updateProductionLog() throws SQLException, IOException {
 
     //Clear the current ProductionRecord textArea
     productionRecordTA.setText("");

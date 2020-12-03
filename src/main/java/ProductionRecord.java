@@ -27,7 +27,7 @@ public class ProductionRecord {
 
   public ProductionRecord(Product product, int itemCount){
     serialNumber = product.manufacturer.substring(0,3) + product.type.code
-        +String.format("%05d", itemCount++);
+        +String.format("%05d", itemCount);
     productID = product.getId();
     dateProduced = new Date();
     productionNumber = 0;

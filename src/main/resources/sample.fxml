@@ -65,7 +65,7 @@
                         <ListView fx:id="productListFXML" layoutX="14.0" layoutY="110.0" prefHeight="200.0" prefWidth="407.0" />
                         <Label layoutX="467.0" layoutY="86.0" text="Choose Quantity" />
                         <ComboBox fx:id="quantityComboBox" layoutX="436.0" layoutY="117.0" prefWidth="150.0" />
-                        <Button fx:id="recordProductionBttn" layoutX="242.0" layoutY="345.0" mnemonicParsing="false" onAction="#recordProduction" text="Record Production" />
+                        <Button fx:id="recordProductionBttn" layoutX="242.0" layoutY="345.0" mnemonicParsing="false" onAction="#addProductionRecord" text="Record Production" />
                     </children>
                 </AnchorPane>
             </Tab>

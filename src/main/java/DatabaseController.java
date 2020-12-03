@@ -1,6 +1,10 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 
 public class DatabaseController {
@@ -10,7 +14,10 @@ public class DatabaseController {
   final String PASS = "";
   public static Connection conn = null;
 
-  public static void connectToDB() {
+  public static void connectToDB() throws IOException {
+    Properties prop = new Properties();
+    prop.load(new FileInputStream("C:\\Users\\Maximilien Latura\\IdeaProjects\\ProductionProject\\src\\main\\java\\password.properties"));
+    String PASS = prop.getProperty("password");
     //File locations for database and h2 driver.
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./resources/ProductionLineDB";
@@ -22,8 +29,7 @@ public class DatabaseController {
 
       //STEP 2: Open a connection
       //conn = DriverManager.getConnection(DB_URL, USER, PASS);
-      conn = DriverManager.getConnection(DB_URL);
-
+      conn = DriverManager.getConnection(DB_URL, "", "efgh");
 
 
     } catch (SQLException | ClassNotFoundException e) {
@@ -32,11 +38,13 @@ public class DatabaseController {
     }
 
   }
+
   //method to fetch the connection outside of DatabaseController so that the Controllers
   //can use it to create statements.
   public static Connection getConnection() {
     return conn;
   }
+
   //Closes the connection.
   public static void closeDB() {
     try {
