@@ -13,8 +13,8 @@ I made this project for my Object Orientated programming class at Flordia Gulf C
 [javadoc](https://github.com/MaxJLat/ProductionProject/blob/master/Docs/index.html)
 
 ## Diagrams
-[Class Diagram](https://github.com/MaxJLat/ProductionProject/blob/master/resources/Package%20blob.png)
-[Database Diagrams](https://github.com/MaxJLat/ProductionProject/blob/master/resources/ProductionLineDB.png)
+![Class Diagram](https://github.com/MaxJLat/ProductionProject/blob/master/resources/Package%20blob.png)
+![Database Diagrams](https://github.com/MaxJLat/ProductionProject/blob/master/resources/ProductionLineDB.png)
 ## Getting Started
 
 
