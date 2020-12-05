@@ -23,6 +23,14 @@ javafx {
 
 mainClassName = 'Main'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 group 'io.github.MaxJLat'
 
