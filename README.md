@@ -7,7 +7,7 @@ I made this project for my Object Orientated programming class at Flordia Gulf C
 
 
 ## Demonstration
-[Demonstration gif](resources/Demo.gif)
+![Demonstration gif](resources/Demo.gif)
 
 ## Documentation
 [javadoc](https://github.com/MaxJLat/ProductionProject/blob/master/Docs/index.html)
