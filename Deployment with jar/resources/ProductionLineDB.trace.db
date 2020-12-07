@@ -1,9 +1,0 @@
-2020-12-04 21:51:49 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
-SELECT NAME, TYPE, MANUFACTURER FROM PRODUCT [42102-200]
-2020-12-04 21:52:03 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
-SELECT NAME, TYPE, MANUFACTURER FROM PRODUCT [42102-200]
-2020-12-04 21:52:21 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" not found; SQL statement:
-SELECT NAME, TYPE, MANUFACTURER FROM PRODUCT [42102-200]

@@ -20,7 +20,7 @@ public class DatabaseController {
   /*Opens a connection object to the database*/
   public static void connectToDB() throws IOException {
     Properties prop = new Properties();
-    prop.load(new FileInputStream("C:\\Users\\Maximilien Latura\\IdeaProjects\\ProductionProject\\src\\main\\java\\password.properties"));
+    prop.load(new FileInputStream("resources/password.properties"));
     String PASS = prop.getProperty("password");
     //File locations for database and h2 driver.
     final String JDBC_DRIVER = "org.h2.Driver";
