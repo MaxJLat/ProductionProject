@@ -7,14 +7,14 @@ I made this project for my Object Orientated programming class at Flordia Gulf C
 
 
 ## Demonstration
-
+![Demonstration gif](resources/Demo.gif)
 
 ## Documentation
-
+[javadoc](https://github.com/MaxJLat/ProductionProject/blob/master/Docs/index.html)
 
 ## Diagrams
-
-
+![Class Diagram](https://github.com/MaxJLat/ProductionProject/blob/master/resources/Package%20blob.png)
+![Database Diagrams](https://github.com/MaxJLat/ProductionProject/blob/master/resources/ProductionLineDB.png)
 ## Getting Started
 
 
@@ -26,7 +26,8 @@ I made this project for my Object Orientated programming class at Flordia Gulf C
 * HTML
 
 ## Contributing
-
+* Robert Kissenger, for helping me through thick and thin.
+* Professor Vanselow, for putting up with me. May he continue to do so.
 
 ## Author
 Maximilien Latura
